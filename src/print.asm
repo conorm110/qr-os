@@ -25,19 +25,19 @@ cls:
   ret
 
 newline:
-    mov bh, [linesize]
+    mov bh, dh
     cmp bh, 0x50
     jne space
-    mov bh, 0 ; we dont want the normal char handler using this
+    mov bh, 0x00  ; we dont want the normal char handler using this
+    mov dh, 0x00
     ret
 
 space:
     mov ah, 0x0e
     mov al, ' '
     int 0x10
-    inc bh
+    add bh, 0x01
     cmp bh, 0x50
     jne space
+    mov dh, 0x00
 
-linesize:
-    db 0x00

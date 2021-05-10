@@ -1,5 +1,6 @@
 [org 0x7e00]
 call cls
+mov dh, 0x00
 
 loop:
     mov ah, 0x00       ; tell bios to get current key
@@ -24,5 +25,6 @@ jmp  $
 ; vars
 Char:
     db "f",0
+
 ; end bytes
 times 1536-($-$$) db 0 
