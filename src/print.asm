@@ -30,7 +30,6 @@ newline:
     jne space
     mov bh, 0x00  ; we dont want the normal char handler using this
     mov dh, 0x00
-    ret
 
 space:
     mov ah, 0x0e
@@ -40,4 +39,4 @@ space:
     cmp bh, 0x50
     jne space
     mov dh, 0x00
-
+    mov ch, 0x06

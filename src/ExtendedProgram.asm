@@ -3,17 +3,22 @@ call cls
 mov dh, 0x00
 
 loop:
+    jmp keyboardLoop
+
+keyboardLoop:
     mov ah, 0x00       ; tell bios to get current key
     int 0x16           ; activate interupt
 
     mov bh,ah          ; put keyboard value into upper bh
+
     call mapChar       ; map keyboard
     mov [Char],bh      ; put bh into char
 
     mov bx, Char       ; pass char to print
     call PrintString   ; print char
-    jmp loop
+    call main
 
+    jmp loop
 
 
 jmp  $
@@ -22,6 +27,7 @@ jmp  $
 ; unreachable includes
 %include "src/print.asm"
 %include "src/keyboard.asm"
+%include "src/program/main.asm"
 ; vars
 Char:
     db "f",0

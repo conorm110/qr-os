@@ -1,6 +1,6 @@
 mapChar:
     inc dh
-    
+    mov ch, bh
     ; letters
     cmp  bh,0x1E
     je   ascan
@@ -85,11 +85,15 @@ mapChar:
     sub  dh, 0x01 ; if no space occupying chars, dont inc dh
 
     cmp  bh,0x1C
-    je   newline
+    je   enter
     
     mov  bh,0x00  ; if no keyscan is reached clear char reg
 
     ret
+
+enter:
+    call nlint
+    call newline
 
 spacescan:
     mov bh, ' '
