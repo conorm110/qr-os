@@ -1,26 +1,18 @@
 
-[org 0x7c00]                    ; location in memory
+[org 0x7c00]
 
-mov  [BOOT_DISK],dl              ; allow boot disk to start
+mov [BOOT_DISK], dl
 
-mov  bp,0x7c00                   ; init for bios
-mov  sp,bp                       ; ...
+mov bp, 0x7c00
+mov sp, bp
 
-mov  bx,InitString               ; pass string to print func
-call PrintString                 ; print string
+call ReadDisk
 
-call ReadDisk                    ; read disk, enter sector 2+
+jmp PROGRAM_SPACE
 
-jmp PROGRAM_SPACE                ; jump to program space
+%include "print.asm"
+%include "DiskRead.asm"
 
-; unreachable inclusions
-%include "src/print.asm" 
-%include "src/DiskRead.asm"
+times 510-($-$$) db 0
 
-; variables
-InitString:
-    db 'Bootloader Started',0
-
-; end bytes
-times 510-($-$$) db 0  ; fill with zeros
-dw 0xaa55              ; declaire bootloader
+dw 0xaa55
