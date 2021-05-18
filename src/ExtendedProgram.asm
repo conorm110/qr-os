@@ -62,4 +62,4 @@ Start64Bit:
     rep stosq
     jmp $
 
-times 1536-($-$$) db 0
+times 1024-($-$$) db 0
