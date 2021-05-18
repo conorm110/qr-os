@@ -1,0 +1,4 @@
+binascii
+pyqrcode
+png
+pyqrcode

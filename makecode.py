@@ -2,7 +2,6 @@ import binascii
 import pyqrcode
 import png
 from pyqrcode import QRCode
-from zipfile import ZipFile
 
 filename = 'bin/out.7z'
 with open(filename, 'rb') as f:
