@@ -1,4 +1,6 @@
-binascii
 pyqrcode
-png
+pypng
 pyqrcode
+cairosvg
+qrtools
+pyzbar
