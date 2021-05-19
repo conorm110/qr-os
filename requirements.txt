@@ -1,4 +1,4 @@
-binascii
 pyqrcode
-png
+pypng
 pyqrcode
+cairosvg

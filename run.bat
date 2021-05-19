@@ -1,3 +1,4 @@
+@echo off
 cd src
 nasm bootloader.asm -f bin -o ../bin/bootloader.bin
 nasm ExtendedProgram.asm -f bin -o ../bin/ExtendedProgram.bin
