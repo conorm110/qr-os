@@ -8,6 +8,6 @@ copy /b bootloader.bin+extendedprogram.bin bootloader.flp
 7z a -t7z out.7z bootloader.flp
 cd ../
 py -3 makecode.py
-cd bin
-qemu-system-x86_64 bootloader.flp
+cd reader
+reader.py
 cd ../

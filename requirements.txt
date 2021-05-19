@@ -3,3 +3,4 @@ pypng
 pyqrcode
 cairosvg
 qrtools
+pyzbar
