@@ -1,12 +1,11 @@
 cls:
     mov ebx, 0xb8000
-    cmp ebx, 0xb87D0
+    cmp ebx,  0x000BFFFF
     jle clearpixel
 
     clearpixel:
-        mov [ebx], byte ' '
+        mov [ebx], byte ' ' 
         add ebx, 2
-        cmp ebx, 0xb87D0
+        cmp ebx,  0x000BFFFF
         jle clearpixel
-
     ret
